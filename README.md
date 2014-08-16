@@ -9,15 +9,11 @@ Please see the [issues](https://github.com/chadsmith/OpenVBX-Android/issues) sec
 * OpenVBX 0.90 or higher
 * Android 2.2 or higher
 
-## Building From Eclipse
+## Building From Android Studio
 
-* Import the repo folder as an Android project. The `.project` included will cause it to have the name `org.openvbx`.
-* Create a `libs` folder at the root of the imported project.
-* Copy the following JAR files to the newly created `libs` folder:
-  * [android-async-http-1.4.3.jar](https://github.com/loopj/android-async-http/tree/master/releases)
+* Import the repo folder as an Android Studio project.
 * Clone the [Android-PullToRefresh](https://github.com/chrisbanes/Android-PullToRefresh) repository
-  * Checkout tag `2.1.1`
-  * Import the `library` folder as an Android project named `PullToRefresh`
+   * Import the `library` folder as an Android project named `PullToRefresh`
 
 The `org.openvbx` project should now build and be launchable and with no errors. If you still see errors try running the `Project > Clean...` menu and/or restart Eclipse.
 

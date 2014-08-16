@@ -1,7 +1,0 @@
-.DS_Store
-*~
-.settings
-gen
-bin
-lint.xml
-libs/*

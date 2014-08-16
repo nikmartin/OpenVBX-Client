@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.openvbx">
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <application
+    	android:icon="@drawable/icon"
+    	android:label="@string/app_name"
+    	android:name="OpenVBXApplication"
+    	android:theme="@style/AppBaseTheme"
+        android:allowBackup="true">
+
+        <activity
+        	android:name=".setup"
+            android:label="OpenVBX">
+            <intent-filter>
+            	<action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+        	android:name=".login"
+            android:label="Login">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".setup" />
+        </activity>
+        <activity
+        	android:name=".settings"
+            android:label="Settings">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".setup" />
+        </activity>
+        <activity
+        	android:name=".folders"
+            android:label="Messages">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".login" />
+        </activity>
+        <activity
+        	android:name=".sms"
+            android:label="New Text">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".setup" />
+        </activity>
+        <activity
+        	android:name=".call"
+            android:label="New Call">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".setup" />
+        </activity>
+
+        <activity
+        	android:name=".message"
+            android:label="Details">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".folders" />
+        </activity>
+        <activity
+            android:name=".inbox"
+            android:label="Inbox">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".message" />
+        </activity>
+        <activity
+        	android:name=".annotate"
+            android:label="Add Note">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".setup" />
+        </activity>
+
+    </application>
+
+</manifest>

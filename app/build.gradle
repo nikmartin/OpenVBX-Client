@@ -1,0 +1,30 @@
+apply plugin: 'com.android.application'
+
+dependencies {
+    compile project(':library')
+    compile 'com.loopj.android:android-async-http:1.4.5'
+    compile 'com.android.support:appcompat-v7:20.0.+'
+    compile 'com.android.support:support-v4:20.0.+'
+}
+
+android {
+    compileSdkVersion 20
+    buildToolsVersion '20.0.0'
+
+    defaultConfig {
+        applicationId "org.openvbx"
+        minSdkVersion 10
+        targetSdkVersion 20
+        versionCode 1
+        versionName '0.0.1'
+    }
+
+    buildTypes {
+        release {
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+
+
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">OpenVBX Client</string>
+    <string name="from">From</string>
+    <string name="status">Status</string>
+    <string name="assigned">Assigned to</string>
+    <string name="action_call">Make a Call</string>
+    <string name="action_sms">Send an SMS</string>
+    <string name="addNote">Add Note</string>
+    <string name="play">Play</string>
+</resources>
