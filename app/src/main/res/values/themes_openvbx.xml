@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Generated with http://android-holo-colors.com -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <style name="OpenVBX" parent="@style/_OpenVBX"/>
+
+  <style name="_OpenVBX" parent="@android:style/Theme.Holo.Light">
+
+    <item name="android:typeface">normal</item>
+    <item name="android:textSize">15sp</item>
+
+    <item name="android:editTextStyle">@style/EditTextOpenVBX</item>
+
+    <item name="android:buttonStyle">@style/ButtonOpenVBX</item>
+
+    <item name="android:imageButtonStyle">@style/ImageButtonOpenVBX</item>
+
+    <item name="android:spinnerStyle">@style/SpinnerOpenVBX</item>
+
+    <item name="android:spinnerDropDownItemStyle">@style/SpinnerDropDownItemOpenVBX</item>
+
+  </style>
+
+</resources>

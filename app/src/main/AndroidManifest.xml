@@ -9,7 +9,7 @@
     	android:icon="@drawable/icon"
     	android:label="@string/app_name"
     	android:name="OpenVBXApplication"
-    	android:theme="@style/AppBaseTheme"
+    	android:theme="@style/OpenVBX"
         android:allowBackup="true">
 
         <activity

@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class MessagesAdapter extends ArrayAdapter<Messages> {
 	public ArrayList<Messages> messages;
 	private int ViewResourceId;
-	private LayoutInflater inflater;
+	private static LayoutInflater inflater = null;
 
 	public MessagesAdapter(Context context, int textViewResourceId, ArrayList<Messages> messages) {
 		super(context, textViewResourceId, messages);

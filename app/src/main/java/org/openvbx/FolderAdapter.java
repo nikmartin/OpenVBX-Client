@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class FolderAdapter extends ArrayAdapter<Folder> {
 	public ArrayList<Folder> folders;
 	private int ViewResourceId;
-	private LayoutInflater inflater;
+	private static LayoutInflater inflater = null;
 
 	public FolderAdapter(Context context, int textViewResourceId, ArrayList<Folder> folders) {
 		super(context, textViewResourceId, folders);
