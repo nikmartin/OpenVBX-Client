@@ -1,9 +1,9 @@
 package org.openvbx;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -16,7 +16,7 @@ import org.apache.http.Header;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class setup extends ActionBarActivity {
+public class setup extends Activity {
 
 	private OpenVBXApplication OpenVBX;
 	private String server = null;
@@ -26,9 +26,10 @@ public class setup extends ActionBarActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+       getActionBar().setDisplayHomeAsUpEnabled(false);
         setContentView(R.layout.setup);
-        OpenVBX = (OpenVBXApplication) getApplication();
+
+       OpenVBX = (OpenVBXApplication) getApplication();
 		((Button) findViewById(R.id.next)).setOnClickListener(new View.OnClickListener() {
 			public void onClick(View view) {
 				if (hasValidInput()) {

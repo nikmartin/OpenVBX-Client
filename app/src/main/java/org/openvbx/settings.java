@@ -11,7 +11,7 @@ public class settings extends Activity {
 
 	private OpenVBXApplication OpenVBX;
 	private String device = null;
-	
+
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {

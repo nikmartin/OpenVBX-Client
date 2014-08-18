@@ -1,8 +1,8 @@
 package org.openvbx;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -17,7 +17,7 @@ import org.apache.http.Header;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class call extends ActionBarActivity {
+public class call extends Activity {
 
 	private OpenVBXApplication OpenVBX;
 
@@ -33,7 +33,12 @@ public class call extends ActionBarActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+       try{
+          getActionBar().setDisplayHomeAsUpEnabled(true);
+       }catch (final NullPointerException e){
+          e.printStackTrace();
+       }
+
         setContentView(R.layout.call);
         OpenVBX = (OpenVBXApplication) getApplication();
         spinner = (Spinner) findViewById(R.id.callerid);

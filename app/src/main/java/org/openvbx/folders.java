@@ -50,7 +50,7 @@ public class folders extends ListActivity {
         pullToRefreshListView.setOnRefreshListener(new OnRefreshListener<ListView>() {
             @Override
             public void onRefresh(PullToRefreshBase<ListView> refreshView) {
-                refresh();
+            refresh();
             }
         });
         progress.setVisibility(View.VISIBLE);

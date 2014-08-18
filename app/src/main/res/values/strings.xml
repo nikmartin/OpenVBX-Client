@@ -8,4 +8,7 @@
     <string name="action_sms">Send an SMS</string>
     <string name="addNote">Add Note</string>
     <string name="play">Play</string>
+    <string name="login_ad_id">ca-app-pub-6749564490796169/6711123924</string>
+    <string name="urlLabel">URL to your OpenVBX installation</string>
+    <string name="btnNext">Next</string>
 </resources>

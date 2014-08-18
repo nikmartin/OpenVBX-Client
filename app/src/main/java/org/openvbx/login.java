@@ -1,11 +1,11 @@
 package org.openvbx;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
-import android.support.v7.app.ActionBarActivity;
 import android.telephony.TelephonyManager;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,7 +18,7 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import org.apache.http.Header;
 import org.json.JSONObject;
 
-public class login extends ActionBarActivity {
+public class login extends Activity {
 
 	private OpenVBXApplication OpenVBX;
 	private String email = null;
@@ -29,8 +29,11 @@ public class login extends ActionBarActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+       getActionBar().setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.login);
+
+
+
         OpenVBX = (OpenVBXApplication) getApplication();
 		((Button) findViewById(R.id.login)).setOnClickListener(new View.OnClickListener() {
 			public void onClick(View view) {

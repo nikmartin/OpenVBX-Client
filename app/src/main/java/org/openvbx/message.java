@@ -1,11 +1,11 @@
 package org.openvbx;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.text.format.DateFormat;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -38,7 +38,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
-public class message extends ActionBarActivity {
+public class message extends Activity {
 
    private OpenVBXApplication OpenVBX;
    private int message_id;
@@ -72,7 +72,7 @@ public class message extends ActionBarActivity {
    @Override
    public void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
-      getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+      getActionBar().setDisplayHomeAsUpEnabled(true);
       setContentView(R.layout.message);
       OpenVBX = (OpenVBXApplication) getApplication();
       progress = (LinearLayout) findViewById(R.id.progress);
@@ -257,10 +257,7 @@ public class message extends ActionBarActivity {
    @Override
    public boolean onCreateOptionsMenu(Menu menu) {
       super.onCreateOptionsMenu(menu);
-      MenuItem return_call = menu.add(0, MENU_REPLY, 0, "Reply");
-      MenuItem archive_message = menu.add(0, MENU_ARCHIVE, 0, "Delete");
-      return_call.setIcon("voice".equals(type) ? android.R.drawable.ic_menu_call : R.drawable.ic_menu_compose);
-      archive_message.setIcon(android.R.drawable.ic_menu_delete);
+      getMenuInflater().inflate(R.menu.message_menu, menu);
       return true;
    }
 
@@ -270,14 +267,14 @@ public class message extends ActionBarActivity {
          case android.R.id.home:
             onBackPressed();
             return true;
-         case MENU_REPLY:
+         case R.id.action_reply:
             Intent i = new Intent(getApplicationContext(), "voice".equals(type) ? call.class : sms.class);
             i.putExtra("from", original_called);
             i.putExtra("to", original_caller);
             i.putExtra("message_id", message_id);
             startActivity(i);
             return true;
-         case MENU_ARCHIVE:
+         case R.id.action_delete:
             OpenVBX.status(context, "Deleting...");
             AsyncHttpClient client = new AsyncHttpClient();
             client.addHeader("Accept", "application/json");
