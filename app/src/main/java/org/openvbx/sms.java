@@ -3,6 +3,8 @@ package org.openvbx;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -33,6 +35,11 @@ public class sms extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+       try{
+          getActionBar().setDisplayHomeAsUpEnabled(true);
+       }catch (final NullPointerException e){
+          e.printStackTrace();
+       }
         setContentView(R.layout.sms);
         OpenVBX = (OpenVBXApplication) getApplication();
         spinner = (Spinner) findViewById(R.id.from);
@@ -83,7 +90,16 @@ public class sms extends Activity {
     	content = ((EditText) findViewById(R.id.content)).getText().toString();
     	return !"".equals(from) && !"".equals(to) && !"".equals(content);
     }
-
+   @Override
+   public boolean onOptionsItemSelected(final MenuItem item) {
+      switch (item.getItemId()) {
+         case android.R.id.home:
+            NavUtils.navigateUpFromSameTask(this);
+            return true;
+         default:
+            return true;
+      }
+   }
 	@Override
 	protected void onPause() {
 		super.onPause();

@@ -35,7 +35,11 @@ public class folders extends ListActivity {
    @Override
    public void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
-      getActionBar().setDisplayHomeAsUpEnabled(true);
+      try{
+         getActionBar().setDisplayHomeAsUpEnabled(true);
+      }catch (final NullPointerException e){
+         e.printStackTrace();
+      }
       setContentView(R.layout.swipe_list);
       ListView folderListView;
       swipeLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_container);

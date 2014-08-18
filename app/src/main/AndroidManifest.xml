@@ -46,7 +46,7 @@
             android:label="New Text">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".setup" />
+                android:value=".folders" />
         </activity>
         <activity
         	android:name=".call"

@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.util.Patterns;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,7 +28,11 @@ public class setup extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       getActionBar().setDisplayHomeAsUpEnabled(false);
+       try{
+          getActionBar().setDisplayHomeAsUpEnabled(false);
+       }catch (final NullPointerException e){
+          e.printStackTrace();
+       }
         setContentView(R.layout.setup);
 
        OpenVBX = (OpenVBXApplication) getApplication();
@@ -71,6 +77,17 @@ public class setup extends Activity {
     	server = ((EditText) findViewById(R.id.server)).getText().toString();
     	return Patterns.WEB_URL.matcher(server).matches();
     }
+
+   @Override
+   public boolean onOptionsItemSelected(final MenuItem item) {
+      switch (item.getItemId()) {
+         case android.R.id.home:
+            NavUtils.navigateUpFromSameTask(this);
+            return true;
+         default:
+            return true;
+      }
+   }
 
 	@Override
 	protected void onPause() {

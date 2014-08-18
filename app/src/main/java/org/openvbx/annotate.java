@@ -29,6 +29,11 @@ public class annotate extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+       try{
+          getActionBar().setDisplayHomeAsUpEnabled(true);
+       }catch (final NullPointerException e){
+          e.printStackTrace();
+       }
         setContentView(R.layout.annotate);
         OpenVBX = (OpenVBXApplication) getApplication();
         Bundle extras = getIntent().getExtras();

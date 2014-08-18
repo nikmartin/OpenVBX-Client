@@ -18,14 +18,14 @@
 			android:layout_gravity="center_horizontal"
 			android:src="@drawable/logo" />
 		<EditText
-			android:id="@+id/email" 
+			android:id="@+id/email"
 			android:layout_width="fill_parent"
 			android:layout_height="wrap_content"
 			android:hint="E-Mail"
 			android:singleLine="true"
 			android:inputType="textEmailAddress" />
 		<EditText
-			android:id="@+id/password" 
+			android:id="@+id/password"
 			android:layout_width="fill_parent"
 			android:layout_height="wrap_content"
 			android:hint="Password"
@@ -35,6 +35,7 @@
 		    android:id="@+id/login"
 		    android:layout_width="100dip"
 		    android:layout_height="wrap_content"
-		    android:text="Login" />
+		    android:text="Login"
+            android:layout_gravity="center_horizontal"/>
 	</LinearLayout>
 </ScrollView>

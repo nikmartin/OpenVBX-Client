@@ -72,7 +72,11 @@ public class message extends Activity {
    @Override
    public void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
-      getActionBar().setDisplayHomeAsUpEnabled(true);
+      try{
+         getActionBar().setDisplayHomeAsUpEnabled(true);
+      }catch (final NullPointerException e){
+         e.printStackTrace();
+      }
       setContentView(R.layout.message);
       OpenVBX = (OpenVBXApplication) getApplication();
       progress = (LinearLayout) findViewById(R.id.progress);

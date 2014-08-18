@@ -52,7 +52,11 @@ public class inbox extends ListActivity {
    @Override
    public void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
-      getActionBar().setDisplayHomeAsUpEnabled(true);
+      try{
+         getActionBar().setDisplayHomeAsUpEnabled(true);
+      }catch (final NullPointerException e){
+         e.printStackTrace();
+      }
       setContentView(R.layout.swipe_list);
       ListView listView;
       swipeLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_container);
@@ -118,7 +122,7 @@ public class inbox extends ListActivity {
 
    protected void onListItemClick(ListView l, View v, int position, long id) {
       super.onListItemClick(l, v, position, id);
-      Messages message = adapter.get(position - 1);
+      Messages message = adapter.get(position);
       Intent i = new Intent(this, message.class);
       i.putExtra("id", message.getId());
       ((TextView) v.findViewById(R.id.caller)).setTypeface(null, Typeface.NORMAL);

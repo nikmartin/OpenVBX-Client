@@ -19,6 +19,7 @@
 	        android:id="@+id/add"
 	        android:layout_width="100dip"
 	        android:layout_height="wrap_content"
-	        android:text="Add Note" />
+	        android:text="Add Note"
+            android:layout_gravity="center_horizontal"/>
 	</LinearLayout>
 </ScrollView>
