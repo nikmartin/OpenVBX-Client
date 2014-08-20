@@ -1,4 +1,4 @@
-# OpenVBX for Android  [![Google Play](http://developer.android.com/images/brand/en_generic_rgb_wo_45.png)](https://play.google.com/store/apps/details?id=org.openvbx)
+# OpenVBX for Android  [![Google Play](http://developer.android.com/images/brand/en_generic_rgb_wo_45.png)](https://play.google.com/store/apps/details?id=org.openvbx.client)
 
 This repository contains the source code for the OpenVBX Android app.
 
@@ -7,15 +7,13 @@ Please see the [issues](https://github.com/chadsmith/OpenVBX-Android/issues) sec
 ## Requirements
 
 * OpenVBX 0.90 or higher
-* Android 2.2 or higher
+* Android 3.0 or higher
 
 ## Building From Android Studio
 
 * Import the repo folder as an Android Studio project.
-* Clone the [Android-PullToRefresh](https://github.com/chrisbanes/Android-PullToRefresh) repository
-   * Import the `library` folder as an Android project named `PullToRefresh`
 
-The `org.openvbx` project should now build and be launchable and with no errors. If you still see errors try running the `Project > Clean...` menu and/or restart Eclipse.
+The `org.openvbx.client` project should now build and be launchable and with no errors. If you still see errors try running the `Project > Clean...` menu and/or restart Android Studio.
 
 You might find that your device doesn't let you install your build if you already have the version from the Android Market installed.  This is standard Android security as it it won't let you directly replace an app that's been signed with a different key.  Manually uninstall OpenVBX from your device and you will then be able to install your own built version.
 
@@ -27,7 +25,6 @@ You might find that your device doesn't let you install your build if you alread
 
 This project uses open source libraries such as:
 
-* [Android-PullToRefresh](https://github.com/chrisbanes/Android-PullToRefresh)
 * [android-async-http](https://github.com/loopj/android-async-http)
 
 ## Contributing

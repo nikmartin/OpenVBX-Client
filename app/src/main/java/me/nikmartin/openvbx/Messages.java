@@ -1,4 +1,4 @@
-package org.openvbx;
+package me.nikmartin.openvbx;
 
 
 public class Messages {

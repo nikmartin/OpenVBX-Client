@@ -1,9 +1,8 @@
-package org.openvbx;
+package me.nikmartin.openvbx;
 
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.NavUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -18,7 +17,7 @@ import org.apache.http.Header;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class sms extends Activity {
+public class call extends Activity {
 
 	private OpenVBXApplication OpenVBX;
 
@@ -26,10 +25,9 @@ public class sms extends Activity {
 	private Spinner spinner;
 	private Context context = this;
 
-	private String from = null;
+	private String callerid = null;
 	private String to = null;
 	private int message_id = 0;
-	private String content = null;
 
     /** Called when the activity is first created. */
     @Override
@@ -40,10 +38,11 @@ public class sms extends Activity {
        }catch (final NullPointerException e){
           e.printStackTrace();
        }
-        setContentView(R.layout.sms);
+
+        setContentView(R.layout.call);
         OpenVBX = (OpenVBXApplication) getApplication();
-        spinner = (Spinner) findViewById(R.id.from);
-        adapter = new CallerIDAdapter(this, OpenVBX.getCallerIDs("sms"));
+        spinner = (Spinner) findViewById(R.id.callerid);
+        adapter = new CallerIDAdapter(this, OpenVBX.getCallerIDs("voice"));
         spinner.setAdapter(adapter);
         Bundle extras = getIntent().getExtras();
         if(extras != null) {
@@ -51,29 +50,27 @@ public class sms extends Activity {
         	((EditText) findViewById(R.id.to)).setText(extras.getString("to"));
         	message_id = extras.getInt("message_id");
         }
-		((Button) findViewById(R.id.send)).setOnClickListener(new View.OnClickListener() {
+		((Button) findViewById(R.id.call)).setOnClickListener(new View.OnClickListener() {
 			public void onClick(View view) {
-				if (hasValidInput()) {
-					OpenVBX.dialog(context, "Sending...");
+				if(hasValidInput()) {
+					OpenVBX.status(context, "Calling...");
 					AsyncHttpClient client = new AsyncHttpClient();
 					client.addHeader("Accept", "application/json");
 					client.setBasicAuth(OpenVBX.getEmail(), OpenVBX.getPassword());
 					RequestParams params = new RequestParams();
-					params.put("from", from);
+					params.put("callerid", callerid);
+					params.put("from", OpenVBX.getDevice());
 					params.put("to", to);
-					params.put("content", content);
-					client.post(OpenVBX.getServer() + "/messages/sms" + (message_id != 0 ? "/" + message_id : ""), params, new JsonHttpResponseHandler() {
+					client.post(OpenVBX.getServer() + "/messages/call" + (message_id != 0 ? "/" + message_id : ""), params, new JsonHttpResponseHandler() {
 			            @Override
 			            public void onSuccess(int statusCode,
                                            Header[] headers,
                                            JSONObject res) {
 			            	try {
 								if(res.getBoolean("error"))
-									OpenVBX.alert(context, "Message could not be sent.", res.getString("message"));
-								else {
-									OpenVBX.status(context, "Message sent");
+									OpenVBX.alert(context, "Call could not be started.", res.getString("message"));
+								else
 									finish();
-								}
 							} catch (JSONException e) {
 								e.printStackTrace();
 							}
@@ -83,23 +80,24 @@ public class sms extends Activity {
 			}
 		});
     }
-
-    private boolean hasValidInput() {
-    	from = spinner.getSelectedItem().toString();
-    	to = ((EditText) findViewById(R.id.to)).getText().toString();
-    	content = ((EditText) findViewById(R.id.content)).getText().toString();
-    	return !"".equals(from) && !"".equals(to) && !"".equals(content);
-    }
    @Override
    public boolean onOptionsItemSelected(final MenuItem item) {
-      switch (item.getItemId()) {
+     switch (item.getItemId()) {
          case android.R.id.home:
-            NavUtils.navigateUpFromSameTask(this);
+            onBackPressed();
             return true;
          default:
             return true;
       }
    }
+
+
+    private boolean hasValidInput() {
+    	callerid = spinner.getSelectedItem().toString();
+    	to = ((EditText) findViewById(R.id.to)).getText().toString();
+    	return !"".equals(callerid) && !"".equals(to);
+    }
+
 	@Override
 	protected void onPause() {
 		super.onPause();

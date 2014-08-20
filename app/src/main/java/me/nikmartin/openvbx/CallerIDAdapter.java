@@ -1,4 +1,4 @@
-package org.openvbx;
+package me.nikmartin.openvbx;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,33 +9,33 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class UserAdapter extends BaseAdapter {
-	public ArrayList<User> users;
+public class CallerIDAdapter extends BaseAdapter {
+	public ArrayList<CallerID> callerids;
 	private LayoutInflater inflater;
 
 	static class ViewHolder {
 		TextView text;
 	}
 
-	public UserAdapter(Context context, ArrayList<User> users) {
-		this.users = users;
+	public CallerIDAdapter(Context context, ArrayList<CallerID> callerids) {
+		this.callerids = callerids;
 		inflater = LayoutInflater.from(context);
 	}
 
 	public int getCount() {
-		return users.size();
+		return callerids.size();
 	}
 
-	public User get(int position){
-		return users.get(position);
+	public CallerID get(int position){
+		return callerids.get(position);
 	}
 
 	public void clear(){
-		users.clear();
+		callerids.clear();
 	}
 
-	public void add(User user){
-		users.add(user);
+	public void add(CallerID callerid){
+		callerids.add(callerid);
 	}
 
 	public String getItem(int position){
@@ -43,12 +43,12 @@ public class UserAdapter extends BaseAdapter {
 	}
 
 	public long getItemId(int position) {
-		return users.indexOf(get(position));
+		return callerids.indexOf(get(position));
 	}
 
-	public int indexOf(int id) {
-		for(int i = 0; i < users.size(); i++)
-			if(id == users.get(i).getId())
+	public int indexOf(String number) {
+		for(int i = 0; i < callerids.size(); i++)
+			if(number.equals(callerids.get(i).getNumber()))
 				return i;
 		return 0;
 	}

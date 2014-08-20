@@ -1,4 +1,4 @@
-package org.openvbx;
+package me.nikmartin.openvbx;
 
 import android.app.Activity;
 import android.content.Context;

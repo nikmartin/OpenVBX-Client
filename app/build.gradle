@@ -10,7 +10,7 @@ android {
     buildToolsVersion '20.0.0'
 
     defaultConfig {
-        applicationId "org.openvbx"
+        applicationId "me.nikmartin.openvbx"
         minSdkVersion 11
         targetSdkVersion 20
         versionCode 1

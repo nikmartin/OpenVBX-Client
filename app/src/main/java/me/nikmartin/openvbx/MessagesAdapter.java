@@ -1,4 +1,4 @@
-package org.openvbx;
+package me.nikmartin.openvbx;
 
 import android.content.Context;
 import android.graphics.Typeface;
